@@ -1,0 +1,328 @@
+body, div, input, textarea {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  background-color: #222;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+h1 {
+  margin: 0;
+}
+
+.content {
+  display: grid;
+  height: inherit;
+  grid-template-rows: auto 70% 1fr;
+}
+
+header {
+  background-color: rgb(25,25,100);
+  color: white;
+}
+
+header {
+  padding: 0.3em;
+  display: grid;
+  grid-template-columns: 9% auto;
+  align-items: center;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.logo-header {
+  display: grid;
+}
+
+.logo-header img {
+  max-width: 100%;
+  align-self: center;
+}
+
+.title-header {
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 0.8em;
+}
+
+.terminalWindow {
+  background-color: black;
+  min-height: 100px;
+  display: grid;
+  grid-template-rows: 1fr 50px;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 1.1em;
+}
+
+.outputWindow {
+  padding: 0.4em;
+  color: white;
+  overflow-y: auto;
+}
+
+.outputWindow .commandInputLine span {
+  font-weight: bold;
+}
+
+@keyframes loadingAnimation {
+  from {
+    background-color: #BBB;
+    color: black;
+  }
+  to {
+    background-color: black;
+    color: white;
+  }
+}
+
+.outputWindow .loadingLine {
+  background-color: black;
+  color: white;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  padding: 0.2em;
+  animation-name: loadingAnimation;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  animation-timing-function: cubic-bezier(1, 0, 0, 1);
+}
+
+.typeWindow {
+  border: 1px solid #999;
+  display: grid;
+  padding: 0.2em;
+  grid-template-columns: 25px 1fr;
+}
+
+.typeSign {
+  display: grid;
+  align-items: center;
+  padding: 0.2em;
+
+}
+
+.typeSign span {
+  text-align: center;
+  font-weight: bold;
+  color: #00AA00;
+}
+
+.typeWindow form {
+  display: grid;
+}
+
+.typeWindow input {
+  width: 100%;
+  border-radius: 0;
+  border: none;
+  background-color: black;
+  color: white;
+  outline: none;
+  font-size: 1em;
+}
+
+.buttons {
+  display: grid;
+  grid-template-columns: 20% 50%;
+  padding: 0.4em;
+}
+
+.arrowGroup, .filesGroup {
+  display: grid;
+  gap: 0.4em;
+  padding: 0.2em;
+}
+
+.arrowGroup button {
+  border: none;
+  border-radius: 5px;
+  font-size: 1.6em;
+  font-weight: bold;
+  background: radial-gradient(circle, #777, #555);
+  background-color: #777;
+  color: white;
+  outline: none;
+}
+
+.arrowGroup button:hover {
+  background: radial-gradient(circle, #555, #777);
+  background-color: #999;
+  cursor: pointer;
+}
+
+.filesGroup button {
+  border: none;
+  border-radius: 5px;
+  font-size: 1.4em;
+  color: white;
+  outline: none;
+}
+
+.filesGroup button:hover {
+  cursor: pointer;
+}
+
+#uploadBtn {
+  background: linear-gradient(to bottom, #00BB00, #008800);
+  background-color: #008800;
+}
+
+#uploadBtn:hover {
+  background: linear-gradient(to bottom, #008800, #00AA00);
+  background-color: #00AA00;
+}
+
+#downloadBtn {
+  background: linear-gradient(to bottom, #0000FF, #0000AA);
+  background-color: #0000AA;
+}
+
+#downloadBtn:hover {
+  background: linear-gradient(to bottom, #0000AA, #0000DD);
+  background-color: #0000DD;
+}
+
+.externalWindowBg {
+  display: none;
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  align-items: center;
+  justify-items: center;
+}
+
+.externalWindow {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  background-color: white;
+  color: black;
+  width: 60%;
+  max-width: 250px;
+  height: 250px;
+  border-radius: 5px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.externalWindowEditFile {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  background-color: white;
+  color: black;
+  width: 80%;
+  max-width: 500px;
+  height: 350px;
+  border-radius: 5px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.listFilesHeader, .editFileHeader {
+  padding: 0.2em;
+  display: grid;
+  grid-template-columns: 1fr auto;
+}
+
+.listFilesHeader .windowTitleBox, .editFileHeader .windowTitleBox {
+  display: grid;
+  text-align: center;
+  align-items: center;
+  justify-items: center;
+}
+
+.listFilesHeader .closeBtn, .editFileHeader .closeBtn {
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  background-color: #AA0000;
+  color: white;
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  border: none;
+  font-size: 1.6em;
+}
+
+.listFilesHeader .closeBtn:hover, .editFileHeader .closeBtn:hover {
+  cursor: pointer;
+  background-color: #CC0000;
+}
+
+.listFilesBox {
+  display: block;
+  overflow-y: auto;
+}
+
+.listFilesBox button {
+  width: 100%;
+  margin: 0.2em auto;
+  border: 1px solid #BBB;
+  background-color: white;
+  padding: 0.5em;
+  font-size: 1em;
+}
+
+.listFilesBox button:hover {
+  cursor: pointer;
+  background-color: #DDDDFF;
+}
+
+.editFileContentBox {
+  padding: 0.2em;
+}
+
+.editFileContentBox textarea {
+  width: 100%;
+  resize: none;
+}
+
+.saveButtonBox {
+  display: grid;
+  padding: 0.2em;
+}
+
+.saveButtonBox button {
+  background-color: #008800;
+  color: white;
+  padding: 0.3em;
+  font-size: 1.2em;
+  border: none;
+  width: 70%;
+  max-width: 250px;
+  margin: auto;
+  border-radius: 5px;
+}
+
+.saveButtonBox button:hover {
+  cursor: pointer;
+  background-color: #00AA00;
+}
+
+@media screen and (min-width:520px) {
+  .title-header {
+    text-align: left;
+    padding-left: 0.5em;
+    font-size: 0.9em;
+  }
+  .filesGroup button {
+    font-size: 1.3em;
+  }
+}
+
+@media screen and (min-width:620px) {
+  header {
+      grid-template-columns: 50px auto;
+  }
+  .buttons {
+    grid-template-columns: 100px 200px;
+  }
+}

@@ -1,0 +1,75 @@
+service: command-line-tool
+
+frameworkVersion: '2'
+
+custom:
+  bucketName: cltool.rs1.es
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  lambdaHashingVersion: 20201221
+  stage: prod
+  region: eu-west-1
+  httpApi:
+    useProviderTags: true
+  tags:
+    proyecto: ${self:service}
+  iam:
+    role:
+      statements:
+        - Effect: Allow
+          Action:
+            - 's3:GetObject'
+            - 's3:PutObject'
+            - 's3:DeleteObject'
+          Resource: arn:aws:s3:::${self:custom.bucketName}/files/*
+        - Effect: Allow
+          Action:
+            - 'elasticfilesystem:ClientRootAccess'
+            - 'elasticfilesystem:ClientMount'
+            - 'elasticfilesystem:ClientWrite'
+          Resource: arn:aws:elasticfilesystem:eu-west-1:ffffffffffff:file-system/fs-11111111
+
+
+functions:
+  sendcommand:
+    image: ffffffffffff.dkr.ecr.eu-west-1.amazonaws.com/command-line-tool@sha256:
+    memorySize: 10240
+    timeout: 60
+    vpc:
+      securityGroupIds:
+        - sg-aaaaaaaaaaaaaaaaa
+      subnetIds:
+        - subnet-bbbbbbbbbbbbbbbbb
+    fileSystemConfig:
+      localMountPath: /mnt/efs
+      arn: arn:aws:elasticfilesystem:eu-west-1:ffffffffffff:access-point/fsap-22222222222222222
+    events:
+      - httpApi:
+          path: /sendcommand
+          method: post
+  uploadpcs3:
+    handler: lambda/uploadpcs3/index.handler
+    memorySize: 128
+    timeout: 5
+    events:
+      - httpApi:
+          path: /uploadpcs3
+          method: post
+  deleteoldfiles:
+    handler: lambda/deleteoldfiles/index.handler
+    memorySize: 128
+    timeout: 10
+    layers:
+      - arn:aws:lambda:eu-west-1:111111111111:layer:request-node:1
+  uploadnets3:
+    handler: lambda/uploadnets3/index.handler
+    memorySize: 256
+    timeout: 20
+    events:
+      - httpApi:
+          path: /uploadnets3
+          method: post
+    layers:
+      - arn:aws:lambda:eu-west-1:111111111111:layer:axios:1

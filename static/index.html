@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Web-based, high-performance Command Line Interface for compiling or file processing">
+  <meta name="keywords" content="cli, vps, cloud, developer, coding, ghostscript, java, python">
+  <meta name="author" content="RS1">
+  <meta name="og:title" content="RS1 Command Line Tool">
+  <meta name="og:description" content="Web-based, high-performance Command Line Interface for compiling or file processing">
+  <meta name="og:image" content="https://cltool.rs1.es/apple-touch-icon.png">
+  <meta name="og:image:width" content="256">
+  <meta name="og:image:height" content="256">
+  <meta name="og:url" content="https://cltool.rs1.es">
+  <meta name="og:type" content="website">
+  <meta name="og:site_name" content="RS1 Command Line Tool">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="RS1 Command Line Tool">
+  <meta name="twitter:description" content="Web-based, high-performance Command Line Interface for compiling or file processing">
+  <meta name="twitter:image" content="https://cltool.rs1.es/apple-touch-icon.png">
+  <meta name="twitter:url" content="https://cltool.rs1.es">
+  <title>RS1 Command Line Tool</title>
+  <link rel="stylesheet" href="res/css/main.min.css?v=20210416_1635">
+  <link rel="shortcut icon" href="favicon.png" type="image/png">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+</head>
+
+<body>
+  <div class="content">
+    <header>
+      <div class="logo-header">
+        <img src="res/imgs/logo-header.png" alt="">
+      </div>
+      <div class="title-header">
+        <h1><a href="/">Command Line Tool</a></h1>
+      </div>
+    </header>
+    <div class="terminalWindow">
+      <div class="outputWindow">
+      </div>
+      <div class="typeWindow">
+        <div class="typeSign">
+          <span>&gt;</span>
+        </div>
+        <form action="" id="commandForm">
+          <input type="text" name="command" id="command" placeholder="Type your command"
+            autocomplete="off">
+        </form>
+      </div>
+    </div>
+    <div class="buttons">
+      <div class="arrowGroup">
+        <button id="arrowUpBtn">&#8593;</button>
+        <button id="arrowDownBtn">&#8595;</button>
+      </div>
+      <div class="filesGroup">
+        <button id="uploadBtn">Upload</button>
+        <button id="downloadBtn">Download</button>
+      </div>
+    </div>
+  </div>
+  <div class="externalWindowBg"></div>
+
+  <script src="res/js/aws-sdk-2.879.0.min.js"></script>
+  <script src="res/js/main.min.js?v=20210917_1329"></script>
+</body>
+
+</html>
