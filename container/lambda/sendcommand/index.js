@@ -44,7 +44,7 @@ let helpText = () => {
     '· (GhostScript) gs -dNOPAUSE -dQUIET -dBATCH -sDEVICE=pdfwrite -dPDFSETTINGS=/printer -dColorImageResolution=150 -sOutputFile="output.pdf" "input.pdf"\n' +
     '· (Python) python3.8 file.py\n' +
     '· (ffmpeg) ffmpeg -i input.mkv -codec copy output.mp4\n' +
-    '· (LibreOffice) export HOME=/mnt/efs/<<YOUR FOLDER>> && soffice --headless --norestore --invisible --nodefault --nofirststartwizard --nolockcheck --nologo --convert-to "pdf:writer_pdf_Export" --outdir /mnt/efs/<<YOUR FOLDER>> "input.txt"\n' +
+    '· (LibreOffice) export HOME=/mnt/efs/<<YOUR FOLDER>> && soffice --convert-to "pdf:writer_pdf_Export" --outdir /mnt/efs/<<YOUR FOLDER>> "input.txt"\n' +
     '· (Node) /var/lang/bin/node index.js\n' +
     '· (Java) The default Java version is 8, but you can use Java 11 by using this path: /usr/lib/jvm/java-11-amazon-corretto.x86_64/bin\n';
 

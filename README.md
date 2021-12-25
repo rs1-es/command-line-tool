@@ -1,7 +1,19 @@
 # Command Line Tool
 Made with AWS and Serverless Framework.
 
-## Steps
+## Website
+
+You can go to <https://cltool.rs1.es> and play with the tool. You can embed it on your website (with a simple `<iframe>`). This is an example:
+```
+<div class="iframe-cltool">
+  <div class="iframe-cltool-title">
+    <span>Test with this online terminal:</span>
+  </div>
+  <iframe height="500" src="https://cltool.rs1.es" style="width: 100%;"></iframe>
+</div>
+```
+
+## Build Steps
 ### Container Image
 1. Create an Elastic Container Repository:
 ```
